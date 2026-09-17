@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>
+      Mohamed Aslam — .NET Full Stack Developer &amp; Senior Software Engineer
+    </title>
+    <meta
+      name="description"
+      content="Mohamed Aslam — Senior Software Engineer | .NET Full Stack Developer | C# | ASP.NET Core | React.js | Vue.js | Microsoft Azure | Microservices"
+    />
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+    <meta name="color-scheme" content="dark light" />
+
+    <script>
+      (function () {
+        try {
+          var key = "themeDefaultDark_v1";
+          if (!localStorage.getItem(key)) {
+            localStorage.setItem("themeMode", "dark");
+            localStorage.setItem(key, "1");
+          }
+          var mode = localStorage.getItem("themeMode");
+          document.documentElement.setAttribute(
+            "data-theme",
+            mode === "light" ? "light" : "dark",
+          );
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Cormorant+Garamond:wght@600;700&family=Bricolage+Grotesque:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body data-theme="dark">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Scroll progress -->
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress-bar" id="scrollProgress"></div>
+    </div>
+
+    <!-- Ambient background -->
+    <div class="ambient" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <canvas id="heroCanvas"></canvas>
+    </div>
+
+    <!-- ============ NAV ============ -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#profile" class="brand-mark">
+          <img
+            class="brand-avatar"
+            src="assets/images/profile/hero-brand.jpeg"
+            alt="Mohamed Aslam"
+            width="38"
+            height="38"
+          />
+          <span class="brand-text">Mohamed Aslam</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#profile" data-i18n="profile">Profile</a></li>
+          <li><a href="#projects" data-i18n="projects">Projects</a></li>
+          <li><a href="#about" data-i18n="about_tab">About</a></li>
+          <!-- <li><a href="#resume" data-i18n="resume_tab">Resume</a></li> -->
+          <li>
+            <a href="#experiences" data-i18n="experiences">Experiences</a>
+          </li>
+          <li><a href="#abilities" data-i18n="abilities">Abilities</a></li>
+          <!-- <li><a href="#awards" data-i18n="awards">Awards</a></li> -->
+          <li>
+            <!-- <a href="#recommendations" data-i18n="recommendations">Reviews</a> -->
+          </li>
+          <li><a href="#contact" data-i18n="contact">Contact</a></li>
+        </ul>
+        <div class="nav-tools">
+          <div class="lang-picker" id="langPicker">
+            <button
+              type="button"
+              class="lang-picker-trigger"
+              id="langPickerTrigger"
+              aria-haspopup="listbox"
+              aria-expanded="false"
+              aria-controls="langPickerMenu"
+              aria-label="Select language"
+            >
+              <span class="lang-flag" id="langPickerFlag" aria-hidden="true"
+                >🇺🇸</span
+              >
+              <span class="lang-label" id="langPickerLabel">English</span>
+              <i
+                class="fa-solid fa-chevron-down lang-chevron"
+                aria-hidden="true"
+              ></i>
+            </button>
+            <div
+              class="lang-picker-menu"
+              id="langPickerMenu"
+              aria-hidden="true"
+            >
+              <div class="lang-picker-search-wrap">
+                <i
+                  class="fa-solid fa-magnifying-glass lang-picker-search-icon"
+                  aria-hidden="true"
+                ></i>
+                <input
+                  type="search"
+                  id="langPickerSearch"
+                  class="lang-picker-search"
+                  placeholder="Search by name or code"
+                  data-i18n-attr="placeholder:lang_search"
+                  aria-label="Search languages"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </div>
+              <div
+                class="lang-picker-list"
+                id="langPickerList"
+                role="listbox"
+                aria-label="Languages"
+              ></div>
+            </div>
+          </div>
+          <select id="color-theme-select" aria-label="Select color theme">
+            <option value="theme-1">Slate & Emerald</option>
+            <option value="theme-2" selected>Midnight Indigo</option>
+            <option value="theme-3">Graphite & Copper</option>
+            <option value="theme-4">Arctic Minimal</option>
+            <option value="theme-5">Forest & Sand</option>
+            <option value="theme-6">Violet Circuit</option>
+            <option value="theme-7">Gold & Ivory</option>
+            <option value="theme-8">Ocean Teal</option>
+            <option value="theme-9">Crimson & Charcoal</option>
+            <option value="theme-10">Cobalt Steel</option>
+          </select>
+          <button
+            class="icon-btn"
+            id="themeToggle"
+            aria-label="Toggle day and night mode"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button
+            class="nav-burger"
+            id="navBurger"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main">
+      <!-- ============ HERO BANNER / PROFILE ============ -->
+      <section class="hero hero-banner" id="profile">
+        <div class="banner-bg" aria-hidden="true">
+          <div class="banner-shape banner-shape-navy"></div>
+          <div class="banner-shape banner-shape-gray"></div>
+          <div class="banner-shape banner-shape-accent"></div>
+        </div>
+
+        <div class="wrap banner-grid">
+          <!-- Branding photo — left panel -->
+          <div class="banner-visual reveal" data-delay="0">
+            <div class="banner-photo-inset">
+              <img
+                src="assets/images/profile/avatar.jpg"
+                alt="Mohamed Aslam Profile"
+                loading="eager"
+              />
+            </div>
+            <div class="banner-photo-wrap">
+              <div class="banner-photo-ring"></div>
+              <div class="banner-photo-main">
+                <img
+                  src="assets/images/profile/hero-brand.jpeg"
+                  alt="Mohamed Aslam"
+                  data-i18n-attr="alt:image_alt_desc"
+                  loading="eager"
+                />
+              </div>
+            </div>
+            <div class="banner-location glass mono" id="strip-location">
+              <i class="fa-solid fa-location-dot"></i> DUBAI, UAE
+            </div>
+          </div>
+
+          <!-- Content — right panel -->
+          <div class="banner-content">
+            <h1 class="banner-name reveal" data-delay="1" data-i18n="name">
+              Mohamed Aslam
+            </h1>
+            <p class="banner-role reveal" data-delay="2" data-i18n="header">
+              Software Engineer | .NET Full Stack Developer | SaaS Products | Cloud Architecture
+            </p>
+            <p
+              class="banner-specialist reveal"
+              data-delay="2"
+              data-i18n="specialist"
+            >
+              Specialist in: C# | ASP.NET Core | React.js | Vue.js | TypeScript | Microsoft Azure | PostgreSQL | SQL Server
+            </p>
+
+            <div class="banner-motto reveal" data-delay="3">
+              <span class="pulse-dot"></span>
+              <span class="mono" data-i18n="header3"
+                >QUALITY, INNOVATION, SPEED</span
+              >
+            </div>
+
+            <div class="hero-stats reveal" data-delay="4" id="heroStats">
+              <div class="stat-card glass">
+                <span class="stat-num" id="heroStatYears">8.9+</span>
+                <span class="stat-label" data-i18n="hero_stat_years_label"
+                  >Years of experience</span
+                >
+              </div>
+              <div class="stat-card glass">
+                <span class="stat-num" id="heroStatProjects">—</span>
+                <span class="stat-label" data-i18n="hero_stat_projects_label"
+                  >Projects delivered</span
+                >
+              </div>
+              <div class="stat-card glass">
+                <span class="stat-num" id="heroStatCompanies">3</span>
+                <span class="stat-label" data-i18n="hero_stat_companies_label"
+                  >Companies worked with</span
+                >
+              </div>
+              <div class="stat-card glass">
+                <span class="stat-num" id="heroStatBadges">3</span>
+                <span class="stat-label" data-i18n="hero_stat_badges_label"
+                  >Certifications &amp; badges</span
+                >
+              </div>
+            </div>
+
+            <div class="employer-brands reveal" data-delay="5">
+              <p
+                class="employer-brands-heading mono"
+                data-i18n="hero_employers_label"
+              >
+                Organizations I've worked with
+              </p>
+              <ul
+                class="employer-brands-grid"
+                id="employerBrandGrid"
+                aria-label="Employer and client logos"
+              ></ul>
+            </div>
+
+            <div class="tag-marquee reveal" data-delay="6">
+              <div class="tag-marquee-track" id="specialistTags"></div>
+            </div>
+
+            <div class="btn-row reveal" data-delay="7">
+              <a href="#contact" class="btn btn-primary btn-glow">
+                <span data-i18n="contact">Contact</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              <a
+                id="heroResumeDownloadBtn"
+                data-resume-download
+                href="assets/files/Mohamed Aslam_Resume_.pdf"
+                download="Mohamed_Aslam_Resume.pdf"
+                class="btn btn-glass"
+              >
+                <i class="fa-solid fa-download"></i>
+                <span data-i18n="qr_text_2">Download Resume</span>
+              </a>
+              <a
+                class="btn btn-glass"
+                id="scheduleBtn"
+                href="https://calendar.google.com"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fa-regular fa-calendar"></i> Schedule
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="banner-contact wrap reveal"
+          data-delay="8"
+          id="bannerContactStrip"
+          aria-label="Connect online"
+        ></div>
+
+        <a href="#about" class="scroll-hint" aria-label="Scroll down">
+          <span class="scroll-hint-line"></span>
+        </a>
+      </section>
+
+      <!-- ============ SKILLS / ABILITIES ============ -->
+      <section class="section section-alt" id="abilities">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <div>
+              <span class="section-tag mono"
+                ><span class="tag-num">02</span>
+                <span data-i18n="abilities">Abilities</span></span
+              >
+              <h2
+                class="section-title abilities-section-title"
+                data-i18n="specialist"
+              >
+                Specialist in: C# | ASP.NET Core | React.js | Vue.js | TypeScript | Microsoft Azure | PostgreSQL | SQL Server
+              </h2>
+            </div>
+          </header>
+          <div
+            class="abilities-board"
+            id="skillsGrid"
+            aria-label="Skills and tools"
+          ></div>
+        </div>
+      </section>
+
+      <!-- ============ PROJECTS ============ -->
+      <section class="section" id="projects">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <div>
+              <span class="section-tag mono"
+                ><span class="tag-num">03</span>
+                <span data-i18n="projects">Projects</span></span
+              >
+              <h2 class="section-title" data-i18n="projects_quote">
+                Architecting scalable SaaS solutions and cloud integrations.
+              </h2>
+            </div>
+          </header>
+          <div class="project-grid" id="projectGrid"></div>
+        </div>
+      </section>
+
+      <!-- ============ ABOUT (detailed) ============ -->
+      <section class="section section-alt about-page" id="about">
+        <div class="wrap">
+          <header class="page-hero-head reveal">
+            <h2 class="page-hero-title" data-i18n="about_learn_more">
+              Learn more about me
+            </h2>
+            <div class="page-hero-line"></div>
+          </header>
+
+          <div class="about-page-grid">
+            <div class="about-page-photo glass-card reveal">
+              <img
+                src="assets/images/profile/hero-brand.jpeg"
+                alt="Mohamed Aslam"
+                width="320"
+                height="380"
+              />
+            </div>
+            <div class="about-page-intro glass-card reveal">
+              <h3 class="about-page-role" id="aboutPageRole"></h3>
+              <p class="about-page-employer" id="aboutPageEmployer"></p>
+              <p class="about-page-org" id="aboutPageOrg"></p>
+              <ul class="about-meta-list" id="aboutMetaList"></ul>
+              <p class="about-summary" id="aboutSummary"></p>
+              <div class="about-links" id="aboutLinks"></div>
+            </div>
+          </div>
+
+          <div class="about-block reveal">
+            <h3 class="block-title">
+              <span class="block-title-line"></span>
+              <span data-i18n="skills_set">Skills set</span>
+            </h3>
+            <div class="skill-bars-grid" id="skillBarsGrid"></div>
+          </div>
+
+          <div class="about-block reveal">
+            <h3 class="block-title">
+              <span class="block-title-line"></span>
+              <span data-i18n="personal_skills">Personal skills</span>
+            </h3>
+            <ul class="personal-skills-list" id="personalSkillsList"></ul>
+          </div>
+
+          <div class="about-block reveal">
+            <h3 class="block-title">
+              <span class="block-title-line"></span>
+              <span data-i18n="certs_heading">Awards &amp; certifications</span>
+            </h3>
+            <div class="cert-grid" id="aboutCertGrid"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ RESUME ============ -->
+      <section class="section resume-page" id="resume">
+        <div class="wrap">
+          <header class="resume-page-head reveal">
+            <div>
+              <h2 class="page-hero-title" data-i18n="resume_tab">Resume</h2>
+              <div class="page-hero-line"></div>
+              <p class="resume-updated mono" data-i18n="resume_updated">
+                Last updated: 2026
+              </p>
+            </div>
+            <a
+              class="btn btn-primary btn-glow"
+              id="resumeDownloadBtn"
+              data-resume-download
+              href="assets/files/Mohamed Aslam_Resume_.pdf"
+              download="Mohamed_Aslam_Resume.pdf"
+            >
+              <i class="fa-solid fa-download"></i>
+              <span data-i18n="download_cv">Download CV</span>
+            </a>
+          </header>
+
+          <div class="resume-layout">
+            <aside class="resume-sidebar reveal">
+              <h3 class="resume-col-title" data-i18n="educations">Education</h3>
+              <div id="resumeEducation"></div>
+              <h3
+                class="resume-col-title resume-col-title-spaced"
+                data-i18n="resume_highlights"
+              >
+                Key highlights
+              </h3>
+              <ul class="resume-highlights" id="resumeHighlights"></ul>
+            </aside>
+            <div class="resume-main reveal">
+              <h3 class="resume-col-title" data-i18n="experience_header">
+                Professional Experience
+              </h3>
+              <div class="resume-timeline" id="resumeTimeline"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ EXPERIENCE ============ -->
+      <section class="section section-alt" id="experiences">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <div>
+              <span class="section-tag mono"
+                ><span class="tag-num">04</span>
+                <span data-i18n="experience_header"
+                  >Professional Experience</span
+                ></span
+              >
+              <h2 class="section-title" data-i18n="experience_quote">
+                Building scalable platforms with precision and high-performance design.
+              </h2>
+            </div>
+          </header>
+          <div class="timeline" id="expTimeline"></div>
+        </div>
+      </section>
+
+      <!-- ============ EDUCATION ============ -->
+      <!-- <section class="section" id="education">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <div>
+              <span class="section-tag mono"
+                ><span class="tag-num">05</span>
+                <span data-i18n="educations">Education</span></span
+              >
+            </div>
+          </header>
+          <div class="edu-grid" id="eduGrid"></div>
+        </div>
+      </section> -->
+
+      <!-- ============ BLOGS ============ -->
+      <section class="section" id="blogs">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <div>
+              <span class="section-tag mono"
+                ><span class="tag-num">05</span>
+                <span data-i18n="blogs">Blogs</span></span
+              >
+              <h2 class="section-title" data-i18n="blogs_quotes">
+                Continuous learning and engineering insights.
+              </h2>
+            </div>
+          </header>
+          <div class="blog-cta glass-card reveal">
+            <p>
+              <span data-i18n="blogs_quotes2"
+                >Love learning and sharing engineering experience. Visit my profile on</span
+              >
+              <a
+                href="https://www.linkedin.com/in/mohamed-aslam-575199203"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="here"
+              >
+                LinkedIn</a
+              >
+              <span data-i18n="blogs_quotes3">for continuous technical updates.</span>
+            </p>
+            <a
+              href="https://www.linkedin.com/in/mohamed-aslam-575199203"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-glass"
+            >
+              <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
+            </a>
+          </div>
+          <div class="blog-grid" id="blogGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- ============ AWARDS ============ -->
+      <!-- <section class="section section-alt" id="awards">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <div>
+              <span class="section-tag mono"
+                ><span class="tag-num">08</span>
+                <span data-i18n="awards_badges">Certifications &amp; Courses</span></span
+              >
+            </div>
+          </header>
+          <div class="award-grid" id="awardGrid"></div>
+        </div>
+      </section> -->
+
+      <!-- ============ REVIEWS / RECOMMENDATIONS ============ -->
+      <!-- <section class="section" id="recommendations">
+        <div class="wrap">
+          <header class="section-head reveal">
+            <div>
+              <span class="section-tag mono"
+                ><span class="tag-num">09</span>
+                <span data-i18n="recommendations">Reviews</span></span
+              >
+              <h2 class="section-title" data-i18n="reviews_quotes">
+                What colleagues and engineering leaders say about Mohamed Aslam.
+              </h2>
+            </div>
+          </header>
+          <div class="testi-stage reveal">
+            <div
+              class="testi-people"
+              id="testiPeople"
+              aria-label="Select a reviewer"
+            ></div>
+            <div class="testi-card glass-card">
+              <div class="testi-card-glow" aria-hidden="true"></div>
+              <div class="testi-content" id="testiContent">
+                <div class="testi-card-grid">
+                  <div class="testi-photo-col">
+                    <div class="testi-photo-frame">
+                      <div class="testi-photo-ring"></div>
+                      <img
+                        class="testi-photo"
+                        id="testiPhoto"
+                        src=""
+                        alt=""
+                        width="280"
+                        height="280"
+                      />
+                    </div>
+                    <div class="testi-stars" aria-hidden="true">
+                      <i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i
+                      ><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="testi-badge mono"
+                      ><i class="fa-brands fa-linkedin-in"></i> Professional
+                      Review</span
+                    >
+                  </div>
+                  <div class="testi-copy">
+                    <div class="testi-icon">
+                      <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="testi-quote" id="testiQuote"></p>
+                    <div class="testi-author">
+                      <div class="testi-who" id="testiWho"></div>
+                      <div class="testi-role" id="testiRole"></div>
+                      <div class="testi-time mono" id="testiTime"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="testi-nav">
+                <button
+                  class="icon-btn testi-nav-btn"
+                  id="testiPrev"
+                  aria-label="Previous review"
+                >
+                  <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div class="testi-counter mono">
+                  <span id="testiCurrent">1</span> /
+                  <span id="testiTotal">1</span>
+                </div>
+                <div class="testi-dots" id="testiDots"></div>
+                <button
+                  class="icon-btn testi-nav-btn"
+                  id="testiNext"
+                  aria-label="Next review"
+                >
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- ============ CONTACT ============ -->
+      <section class="section contact-section" id="contact">
+        <div class="wrap">
+          <div class="contact-grid reveal">
+            <span class="section-tag mono"
+              ><span class="tag-num">06</span>
+              <span data-i18n="contact">Contact</span></span
+            >
+            <h2 class="contact-quote gradient-text" data-i18n="contact_quotes">
+              Let's build scalable enterprise solutions together.
+            </h2>
+            <div
+              class="contact-social-grid"
+              id="contactSocialRow"
+              aria-label="Social and contact links"
+            >
+              <a href="mailto:mohamedaslam58@gmail.com" class="social-card">
+                <i class="fa-solid fa-envelope"></i>
+                <span>mohamedaslam58@gmail.com</span>
+              </a>
+              <a href="tel:+971563374166" class="social-card">
+                <i class="fa-solid fa-phone"></i>
+                <span>+971 56 337 4166</span>
+              </a>
+              <a href="https://www.linkedin.com/in/mohamed-aslam-575199203" target="_blank" class="social-card">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn Profile</span>
+              </a>
+            </div>
+            <a id="emailLink" href="mailto:mohamedaslam58@gmail.com" hidden aria-hidden="true"></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-inner">
+        <span
+          >© <span id="year"></span>
+          <span data-i18n="copyright_desclamair">Mohamed Aslam</span></span
+        >
+        <span class="mono footer-tagline"
+          >Crafted with precision — every detail, considered.</span
+        >
+      </div>
+    </footer>
+
+    <button class="back-top" id="backTop" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="assets/js/content.js"></script>
+    <script src="assets/js/resume.js"></script>
+    <script src="assets/js/themes.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
