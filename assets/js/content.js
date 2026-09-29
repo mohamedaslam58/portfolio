@@ -145,6 +145,16 @@ const PROJECTS = [
       },
     ],
   },
+  {
+    id: "organization-backup",
+    img: "assets/images/projects/backup.jpg",
+    links: [
+      {
+        kind: "github",
+        href: "https://github.com/mohamedaslam58/organization-backup",
+      },
+    ],
+  }
 ];
 
 const EXPERIENCE_LOGO_FALLBACK =
