@@ -151,4 +151,5 @@ const RESUME_ACHIEVEMENT_KEYS = [
   "resume_highlight_1",
   "resume_highlight_2",
   "resume_highlight_3",
+  "resume_highlight_4",
 ];

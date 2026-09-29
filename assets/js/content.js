@@ -89,9 +89,20 @@ const PROJECTS = [
     ],
   },
   {
+    id: "vms",
+    img: "assets/images/projects/vms.jpg",
+    feature: true,
+    links: [],
+  },
+  {
+    id: "syncfusion_fusion_theme",
+    img: "assets/images/projects/dark-theme.jpg",
+    feature: true,
+    links: [],
+  },
+  {
     id: "darbaar",
     img: "assets/images/projects/dgh.png",
-    feature: true,
     links: [
       {
         kind: "site",
@@ -110,19 +121,29 @@ const PROJECTS = [
     ],
   },
   {
-    id: "vms",
-    img: "assets/images/projects/vms.jpg",
-    links: [],
-  },
-  {
     id: "inventory",
     img: "assets/images/projects/inventory.png",
     links: [],
   },
   {
-    id: "syncfusion_fusion_theme",
-    img: "assets/images/projects/dark-theme.jpg",
-    links: [],
+    id: "azarch",
+    img: "assets/images/projects/azarch.jpg",
+    links: [
+      {
+        kind: "site",
+        href: "https://azarch.in/",
+      },
+    ],
+  },
+  {
+    id: "sustainable_gate",
+    img: "assets/images/projects/sg.jpg",
+    links: [
+      {
+        kind: "site",
+        href: "https://mohamedaslam58.github.io/sustainablegate",
+      },
+    ],
   },
 ];
 
