@@ -154,6 +154,16 @@ const PROJECTS = [
         href: "https://github.com/mohamedaslam58/organization-backup",
       },
     ],
+  },
+  {
+    id: "ASRS-inventory-management",
+    img: "assets/images/projects/asrs.jpg",
+    links: [
+      {
+        kind: "github",
+        href: "https://github.com/mohamedaslam58/asrs-inventory-management",
+      },
+    ],
   }
 ];
 
